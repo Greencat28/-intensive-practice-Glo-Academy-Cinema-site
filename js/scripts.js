@@ -2,8 +2,20 @@ const schemeSvg = document.querySelector(".scheme-svg");
 const totalPriceTag = document.querySelector(".price-total");
 const menuBtn = document.querySelector(".m-menu");
 const menu = document.querySelector(".menu");
+const trailerBtn = document.querySelector(".film-trailer");
 
-Fancybox.bind("[data-fancybox]", {});
+if (trailerBtn) {
+  trailerBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    Fancybox.show([
+      {
+        src: trailerBtn.getAttribute("href"),
+        type: "video",
+      },
+    ]);
+  });
+}
 
 let cost = 500;
 let totalPrice = 0;
