@@ -34,29 +34,6 @@
   box-sizing: border-box;
 }
 
-ul[class],
-ol[class] {
-  padding: 0;
-}
-
-ul[class],
-ol[class],
-a {
-  list-style: none;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul[class],
-ol[class],
-li {
-  margin: 0;
-}
-
 body {
   background-color: #621402;
   color: #fff;
@@ -65,24 +42,41 @@ body {
 }
 .container {
   margin: auto;
-  width: 1170px;
+  max-width: 1170px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .header {
-  min-height: 100vh;
+  padding-bottom: 60px;
   background:
     linear-gradient(180deg, rgba(98, 20, 2, 0.31) 0%, #621402 85.62%),
-    url("../img/bg.jpg") no-repeat center top / cover;
+    url("../img/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  overflow: hidden;
 }
 
 .navbar {
   display: flex;
   align-items: center;
-  padding: 30px 0;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.nav {
+  position: relative;
 }
 
 .logo {
   margin-right: 57px;
+}
+
+.m-menu {
+  display: none;
 }
 
 .menu {
@@ -96,7 +90,6 @@ body {
   text-decoration: none;
   color: #fff;
   font-family: "Roboto", sans-serif;
-  font-weight: 400;
   font-size: 14px;
 }
 .user {
@@ -106,7 +99,6 @@ body {
 }
 
 .user-hello_text {
-  font-weight: 400;
   font-size: 16px;
 }
 .user-avatar {
@@ -242,14 +234,24 @@ body {
   margin-top: 20px;
 }
 
+.select option {
+  background-color: #621402;
+  color: #fff;
+  padding: 10px;
+}
+
 .select-cinema {
-  min-width: 470px;
+  width: 470px;
 }
 
 .scheme {
   background: rgba(36, 36, 36, 0.18);
   border-radius: 10px;
   margin-bottom: 40px;
+}
+
+.scheme-svg {
+  max-width: 1170px;
 }
 
 .scheme path:not(.light) {
@@ -277,6 +279,7 @@ body {
   align-items: center;
   border-top: 1px solid #ffffff80;
   max-width: 1024px;
+  width: 90%;
   margin: auto;
   padding: 22px 0 38px;
 }
@@ -325,4 +328,164 @@ body {
   line-height: 21px;
   padding: 24px 52px;
   text-decoration: none;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+  .select-cinema {
+    width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 750px;
+  }
+  .session {
+    flex-wrap: wrap;
+  }
+  .session-date {
+    flex-basis: 70%;
+    margin-bottom: 40px;
+  }
+  .session-time {
+    order: 2;
+  }
+  .session-cinema {
+    order: 3;
+  }
+  .menu-item {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 560px;
+    width: 90%;
+  }
+
+  .logo {
+    margin-right: 0;
+  }
+  .menu {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    padding: 20px;
+    margin-left: 10px;
+    flex-direction: column;
+    margin-left: 35px;
+    background-color: #621402;
+    z-index: 10;
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20%);
+    transition:
+      opacity 0.5s,
+      transform 0.5s;
+  }
+
+  .menu-item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  .m-menu {
+    display: block;
+    background-color: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 20px;
+    padding: 20px;
+  }
+  .is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .film {
+    flex-direction: column;
+  }
+  .film-info {
+    width: 100%;
+  }
+  .film-trailer {
+    margin: 30px;
+  }
+
+  .legend {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .session-date-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .session-date-item {
+    margin-right: 0;
+  }
+
+  .select {
+    font-size: 14px;
+    padding: 12px;
+    max-width: 100%;
+  }
+
+  .menu {
+    margin-left: 0;
+  }
+
+  .m-menu {
+    margin: 0;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .logo {
+    margin-right: 0;
+  }
+
+  .user {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .film-trailer {
+    margin: 50px;
+  }
+
+  .film-trailer img {
+    width: 55px;
+  }
+
+  .legend {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .price-tag {
+    font-size: 35px;
+    line-height: 61px;
+  }
+
+  .button {
+    padding: 15px 20px;
+  }
 }
