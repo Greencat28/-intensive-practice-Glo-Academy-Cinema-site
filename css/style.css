@@ -40,7 +40,8 @@ ol[class] {
 }
 
 ul[class],
-ol[class] {
+ol[class],
+a {
   list-style: none;
 }
 
@@ -243,4 +244,85 @@ body {
 
 .select-cinema {
   min-width: 470px;
+}
+
+.scheme {
+  background: rgba(36, 36, 36, 0.18);
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.scheme path:not(.light) {
+  fill: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.scheme path:not(.light):hover {
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+.scheme path.active,
+.scheme path.active:hover {
+  fill: #fe8e05;
+}
+
+.scheme path.booked,
+.scheme path.booked:hover {
+  fill: rgba(255, 255, 255, 0.05);
+  cursor: not-allowed;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ffffff80;
+  max-width: 1024px;
+  margin: auto;
+  padding: 22px 0 38px;
+}
+
+.legend-free,
+.legend-active,
+.legend-booked {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.legend svg {
+  margin-right: 15px;
+}
+
+.legend-text {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.price {
+  padding: 20px 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price-tag {
+  font-size: 52px;
+  line-height: 61px;
+}
+
+.price-label {
+  display: block;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.button {
+  display: block;
+  background: #fe8e05;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 24px 52px;
+  text-decoration: none;
 }
